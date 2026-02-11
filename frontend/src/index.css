@@ -1,0 +1,38 @@
+:root {
+  --textcolor: #fff;
+  --bordercolor: #f6b1ce;
+  --background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #f6b1ce
+  );
+  --maincaptionfont: 300 3.75rem "Roboto", sans-serif;
+  --captionfont: 300 2.5rem "roboto", sans-serif;
+  --textfont: 300 1.125rem "Roboto", sans-serif;
+  --minortextfont: 300 0.875rem "Roboto", sans-serif;
+  --transition: all 0.225s ease-in-out;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  overscroll-behavior: none;
+  background: var(--background);
+  background-attachment: fixed;
+}
+body {
+  background-color: rgba(0, 0, 0, 0.75);
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  color: var(--textcolor);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}

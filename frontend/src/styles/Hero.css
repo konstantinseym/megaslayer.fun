@@ -1,0 +1,11 @@
+.hero {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0 2rem;
+  z-index: 1;
+}
+.hero__caption {
+  font: var(--maincaptionfont);
+}

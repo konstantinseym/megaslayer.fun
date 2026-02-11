@@ -1,0 +1,10 @@
+.core {
+    width: 100vw;
+    padding: 10rem 0 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
