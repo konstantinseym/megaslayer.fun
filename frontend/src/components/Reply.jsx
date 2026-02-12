@@ -1,18 +1,10 @@
-import "../styles/PostPreview.css";
-import { Link } from "react-router-dom";
+import "../styles/Reply.css";
 
-function PostPreview() {
+function Reply() {
   return (
-    <div className="postpreview">
-      <div className="postpreview__titlecontainer">
-        <Link to={"/post"}>
-          <h2 className="postpreview__caption">
-            Lorem Ipsum
-          </h2>
-        </Link>
-        <p className="postpreview__minortext">00:06 13/11/2026 id: 0001</p>
-      </div>
-      <p className="postpreview__content">
+    <div className="reply">
+      <p className="reply__minortext">00:06 13/11/2026 id: 0001</p>
+      <p className="reply__content">
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
@@ -27,4 +19,4 @@ function PostPreview() {
   );
 }
 
-export default PostPreview;
+export default Reply;

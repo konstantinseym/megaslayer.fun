@@ -1,13 +1,15 @@
 :root {
   --textcolor: #fff;
   --bordercolor: #f6b1ce;
+  --fadecolor: rgba(0, 0, 0, 0.15);
   --background: linear-gradient(
     to bottom,
     #ffffff,
     #f6b1ce
   );
   --maincaptionfont: 300 3.75rem "Roboto", sans-serif;
-  --captionfont: 300 2.5rem "roboto", sans-serif;
+  --captionfont: 300 2.5rem "Roboto", sans-serif;
+  --minorcaptionfont: 300 2rem "Roboto", sans-serif;
   --textfont: 300 1.125rem "Roboto", sans-serif;
   --minortextfont: 300 0.875rem "Roboto", sans-serif;
   --transition: all 0.225s ease-in-out;
@@ -35,4 +37,8 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }

@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="app">
-      <Hero heroCaptionContent={"megaslayer.fun"} />
+        <Hero heroCaptionContent={"megaslayer.fun"} />
       <Core />
       <Ftr ftrCaptionContent={"megaslayer.fun"} />
     </div>

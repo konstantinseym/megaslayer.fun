@@ -1,0 +1,14 @@
+.reply {
+  border-radius: 0.25rem;
+  padding: 1rem;
+  background-color: var(--fadecolor);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.reply__minortext {
+  font: var(--minortextfont);
+}
+.reply__content {
+  font: var(--textfont);
+}

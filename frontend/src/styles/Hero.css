@@ -8,4 +8,8 @@
 }
 .hero__caption {
   font: var(--maincaptionfont);
+  transition: var(--transition);
+}
+.hero__caption:hover {
+  color: var(--bordercolor);
 }

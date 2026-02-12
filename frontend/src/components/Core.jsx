@@ -1,10 +1,15 @@
 import "../styles/Core.css";
-import PostPreview from "./PostPreview.jsx";
+import { Routes, Route } from "react-router-dom";
+import PostList from "./PostList.jsx";
+import PostPage from "./PostPage.jsx";
 
 function Core() {
   return (
     <main className="core">
-      <PostPreview />
+      <Routes>
+        <Route path="/" element={<PostList />} />
+        <Route path="/post" element={<PostPage />} />
+      </Routes>
     </main>
   );
 }
