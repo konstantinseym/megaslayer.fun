@@ -12,6 +12,9 @@
   justify-content: center;
   gap: 1rem;
 }
+.modalnewthread--hidden {
+  display: none;
+}
 .modalnewthread__caption {
   font: var(--captionfont);
 }

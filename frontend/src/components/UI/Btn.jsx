@@ -1,7 +1,7 @@
 import "../../styles/Btn.css";
 
-function Btn({ children }) {
-  return <button className="btn">{children}</button>;
+function Btn({ children, type, ...props }) {
+  return <button className="btn" type={type} {...props}>{children}</button>;
 }
 
 export default Btn;

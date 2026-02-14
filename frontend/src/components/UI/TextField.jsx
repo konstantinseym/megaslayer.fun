@@ -1,7 +1,14 @@
 import "../../styles/TextField.css";
 
-function TextField() {
-  return <textarea className="textfield" autoComplete="off"></textarea>
+function TextField({ value, ...props }) {
+  return (
+    <textarea
+      className="textfield"
+      autoComplete="off"
+      value={value}
+      {...props}
+    ></textarea>
+  );
 }
 
 export default TextField;

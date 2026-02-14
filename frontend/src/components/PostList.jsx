@@ -3,7 +3,7 @@ import Btn from "./UI/Btn.jsx";
 import { getPosts } from "../api/getposts.js";
 import { useState, useEffect } from "react";
 
-function PostList() {
+function PostList({ onOpenModal }) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function PostList() {
 
   return (
     <>
-      <Btn>create thread</Btn>
+      <Btn onClick={onOpenModal}>create thread</Btn>
       {posts.map((post) => (
         <PostPreview
           postId={post.id}

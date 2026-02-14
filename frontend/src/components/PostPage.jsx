@@ -7,18 +7,18 @@ import FormAddComment from "./FormAddComment.jsx";
 function PostPage() {
   const [post, setPost] = useState(null);
 
+  async function renderPost() {
+    const query = new URLSearchParams(window.location.search);
+    const postId = query.get("id");
+    const serverData = await getOnePost(postId);
+    setPost(serverData);
+  }
+
   useEffect(() => {
-    (async () => {
-      const query = new URLSearchParams(window.location.search);
-      const postId = query.get("id");
-      const serverData = await getOnePost(postId);
-      setPost(serverData);
-    })();
+    renderPost();
   }, []);
 
   if (!post) return <></>;
-
-  console.log(post.comments);
 
   return (
     <div className="postpage">
@@ -37,7 +37,7 @@ function PostPage() {
             commentCreatedAt={comment.created_at}
           />
         ))}
-        <FormAddComment />
+        <FormAddComment postId={post.id} onAddComment={renderPost} />
       </div>
     </div>
   );
