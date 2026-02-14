@@ -2,6 +2,8 @@
   --textcolor: #fff;
   --bordercolor: #f6b1ce;
   --fadecolor: rgba(0, 0, 0, 0.15);
+  --fadecolorwhite: rgba(255, 255, 255, 0.05);
+  --fadecolordark: rgba(0, 0, 0, 0.75);
   --background: linear-gradient(
     to bottom,
     #ffffff,

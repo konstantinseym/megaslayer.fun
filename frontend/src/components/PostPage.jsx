@@ -1,5 +1,6 @@
 import "../styles/PostPage.css";
 import Reply from "./Reply.jsx";
+import FrormAddComment from "./FormAddComment.jsx";
 
 function PostPage() {
   return (
@@ -26,6 +27,7 @@ function PostPage() {
       <div className="postpage__replies">
         <Reply />
         <Reply />
+        <FrormAddComment />
       </div>
     </div>
   );

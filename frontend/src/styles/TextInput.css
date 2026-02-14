@@ -1,0 +1,10 @@
+.textinput {
+  width: 95%;
+  outline: none;
+  border: 1px solid var(--bordercolor);
+  border-radius: 0.25rem;
+  background-color: var(--fadecolorwhite);
+  color: #fff;
+  font: var(--minortextfont);
+  padding: 0.25rem;
+}

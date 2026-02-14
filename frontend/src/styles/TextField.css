@@ -1,0 +1,12 @@
+.textfield {
+    width: 95%;
+    height: 8rem;
+    resize: none;
+    outline: none;
+    border: 1px solid var(--bordercolor);
+    border-radius: 0.25rem;
+    background-color: var(--fadecolorwhite);
+    color: #fff;
+    font: var(--minortextfont);
+    padding: 0.25rem;
+}

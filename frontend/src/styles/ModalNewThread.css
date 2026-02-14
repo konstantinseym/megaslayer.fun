@@ -1,0 +1,24 @@
+.modalnewthread {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--fadecolordark);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.modalnewthread__caption {
+  font: var(--captionfont);
+}
+.modalnewthread__form {
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
