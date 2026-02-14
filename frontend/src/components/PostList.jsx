@@ -1,16 +1,30 @@
 import PostPreview from "./PostPreview.jsx";
 import Btn from "./UI/Btn.jsx";
+import { getPosts } from "../api/getposts.js";
+import { useState, useEffect } from "react";
 
 function PostList() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const serverData = await getPosts();
+      setPosts(serverData);
+    })();
+  }, []);
+
   return (
     <>
       <Btn>create thread</Btn>
-      <PostPreview />
-      <PostPreview />
-      <PostPreview />
-      <PostPreview />
-      <PostPreview />
-      <PostPreview />
+      {posts.map((post) => (
+        <PostPreview
+          postId={post.id}
+          postCaption={post.caption}
+          postText={post.text}
+          postCreatedAt={post.created_at}
+          key={post.id}
+        />
+      ))}
     </>
   );
 }

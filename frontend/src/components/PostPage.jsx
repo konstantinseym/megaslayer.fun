@@ -1,33 +1,43 @@
 import "../styles/PostPage.css";
+import { getOnePost } from "../api/getonepost.js";
+import { useState, useEffect } from "react";
 import Reply from "./Reply.jsx";
-import FrormAddComment from "./FormAddComment.jsx";
+import FormAddComment from "./FormAddComment.jsx";
 
 function PostPage() {
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const query = new URLSearchParams(window.location.search);
+      const postId = query.get("id");
+      const serverData = await getOnePost(postId);
+      setPost(serverData);
+    })();
+  }, []);
+
+  if (!post) return <></>;
+
+  console.log(post.comments);
+
   return (
     <div className="postpage">
       <div className="postpage__post">
         <div className="postpage__titlecontainer">
-          <h2 className="postpage__caption">
-            Lorem Ipsum
-          </h2>
-          <p className="postpage__minortext">00:06 13/11/2026 id: 0001</p>
+          <h2 className="postpage__caption">{post.caption}</h2>
+          <p className="postpage__minortext">{post.created_at}</p>
         </div>
-        <p className="postpage__content">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
+        <p className="postpage__content">{post.text}</p>
       </div>
       <div className="postpage__replies">
-        <Reply />
-        <Reply />
-        <FrormAddComment />
+        {post.comments.map((comment) => (
+          <Reply
+            key={comment.id}
+            commentText={comment.text}
+            commentCreatedAt={comment.created_at}
+          />
+        ))}
+        <FormAddComment />
       </div>
     </div>
   );
