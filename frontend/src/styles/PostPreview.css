@@ -1,11 +1,16 @@
 .postpreview {
   width: 960px;
-  border: solid 1px var(--bordercolor);
   border-radius: 0.25rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  backdrop-filter: blur(4px);
+  border: solid 1px var(--bordercolor);
+  border-bottom: solid 1px var(--borderhighlightedcolor);
+  border-right: solid 1px var(--borderhighlightedcolor);
+  box-shadow: 0 0 8px var(--fadecolor);
+  background-color: var(--backgroundhighlightedcolor);
 }
 .postpreview__titlecontainer {
   display: flex;
@@ -17,12 +22,12 @@
   transition: var(--transition);
 }
 .postpreview__caption:hover {
-  color: var(--bordercolor);
+  color: var(--highlightcolor);
   cursor: pointer;
 }
 .postpreview__minortext {
   font: var(--minortextfont);
-  flex: 1;
+  flex: 2;
   flex-shrink: none;
   text-align: right;
 }

@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
 import "../styles/Hero.css";
+import { Link } from "react-router-dom";
 
-function Hero({ heroCaptionContent }) {
+function Hero() {
   return (
     <header className="hero">
       <Link to={"/"}>
-        <h1 className="hero__caption">{heroCaptionContent}</h1>
+        <h1 className="hero__caption">megaslayer.fun</h1>
       </Link>
     </header>
   );

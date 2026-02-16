@@ -1,15 +1,28 @@
 .hero {
   position: fixed;
+  top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0 2rem;
+  padding: 0.5rem 1.5rem;
   z-index: 1;
+  backdrop-filter: blur(4px);
+  border: solid 1px var(--bordercolor);
+  border-bottom: solid 1px var(--borderhighlightedcolor);
+  border-right: solid 1px var(--borderhighlightedcolor);
+  box-shadow: 0 0 8px var(--fadecolor);
+  background-color: var(--backgroundhighlightedcolor);
+  border-radius: 4rem;
+  transition: var(--transition);
+}
+.hero:hover {
+  box-shadow: 0 0 16px var(--fadecolor);
+  transform: scale(1.025);
 }
 .hero__caption {
   font: var(--maincaptionfont);
   transition: var(--transition);
 }
 .hero__caption:hover {
-  color: var(--bordercolor);
+  color: var(--highlightcolor);
 }

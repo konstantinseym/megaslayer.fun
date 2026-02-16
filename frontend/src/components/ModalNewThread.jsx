@@ -5,16 +5,17 @@ import TextInput from "./UI/TextInput.jsx";
 import TextField from "./UI/TextField.jsx";
 import Btn from "./UI/Btn.jsx";
 
-function ModalNewThread({ isVisible, onCloseModal }) {
+function ModalNewThread({ isVisible, onCloseModal, onAddPost }) {
   const [newPostCaptionValue, setNewPostCaptionValue] = useState("");
   const [newPostTextValue, setNewPostTextValue] = useState("");
 
-  function FormSubmit(e) {
+  async function FormSubmit(e) {
     e.preventDefault();
-    addPost(newPostCaptionValue, newPostTextValue);
+    await addPost(newPostCaptionValue, newPostTextValue);
     setNewPostCaptionValue("");
     setNewPostTextValue("");
     onCloseModal();
+    onAddPost();
   }
 
   function handleChangePostCaptionValue(e) {
@@ -26,8 +27,12 @@ function ModalNewThread({ isVisible, onCloseModal }) {
   }
 
   return (
-    <div className={"modalnewthread" + (!isVisible ? " modalnewthread--hidden" : "")}>
-      <h2 className="modalnewthread__caption">create new thread</h2>
+    <div
+      className={
+        "modalnewthread" + (!isVisible ? " modalnewthread--hidden" : "")
+      }
+    >
+      <h2 className="modalnewthread__caption">new thread</h2>
       <form className="modalnewthread__form" onSubmit={FormSubmit}>
         <TextInput
           value={newPostCaptionValue}
@@ -37,8 +42,12 @@ function ModalNewThread({ isVisible, onCloseModal }) {
           value={newPostTextValue}
           onChange={handleChangePostTextValue}
         />
-        <Btn type="submit">create thread</Btn>
-        <Btn type="button" onClick={onCloseModal}>back</Btn>
+        <div className="modalnewthread__buttonswrapper">
+          <Btn type="submit">create</Btn>
+          <Btn type="button" onClick={onCloseModal}>
+            back
+          </Btn>
+        </div>
       </form>
     </div>
   );

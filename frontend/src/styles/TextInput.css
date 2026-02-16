@@ -1,10 +1,20 @@
 .textinput {
-  width: 95%;
+  width: 100%;
   outline: none;
-  border: 1px solid var(--bordercolor);
+  backdrop-filter: blur(4px);
+  border: solid 1px var(--bordercolor);
+  border-bottom: solid 1px var(--borderhighlightedcolor);
+  border-right: solid 1px var(--borderhighlightedcolor);
+  box-shadow: 0 0 8px var(--fadecolor);
+  background-color: var(--backgroundhighlightedcolor);
   border-radius: 0.25rem;
-  background-color: var(--fadecolorwhite);
+  background-color: var(--fadeoutcolor);
   color: #fff;
   font: var(--minortextfont);
   padding: 0.25rem;
+  transition: var(--transition);
+}
+.textinput:focus {
+  transform: scale(1.01);
+  box-shadow: 0 0 8px var(--highlightcolor);
 }

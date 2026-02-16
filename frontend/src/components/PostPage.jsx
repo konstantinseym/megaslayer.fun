@@ -1,6 +1,7 @@
 import "../styles/PostPage.css";
 import { getOnePost } from "../api/getonepost.js";
 import { useState, useEffect } from "react";
+import { formatDate } from "../utils/formatDate";
 import Reply from "./Reply.jsx";
 import FormAddComment from "./FormAddComment.jsx";
 
@@ -25,7 +26,7 @@ function PostPage() {
       <div className="postpage__post">
         <div className="postpage__titlecontainer">
           <h2 className="postpage__caption">{post.caption}</h2>
-          <p className="postpage__minortext">{post.created_at}</p>
+          <p className="postpage__minortext">{formatDate(post.created_at)}</p>
         </div>
         <p className="postpage__content">{post.text}</p>
       </div>
@@ -34,7 +35,7 @@ function PostPage() {
           <Reply
             key={comment.id}
             commentText={comment.text}
-            commentCreatedAt={comment.created_at}
+            commentCreatedAt={formatDate(comment.created_at)}
           />
         ))}
         <FormAddComment postId={post.id} onAddComment={renderPost} />

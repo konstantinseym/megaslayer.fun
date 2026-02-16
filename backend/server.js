@@ -9,7 +9,7 @@ await initTables();
 
 app.get("/api/getposts", async (req, res) => {
   const postsForClient = await pool.query(
-    "SELECT * from posts ORDER BY id DESC",
+    "SELECT p.id, p.caption, p.text, p.created_at, COUNT(c.id) AS comments_count, MAX(c.created_at) AS last_comment_date FROM posts p LEFT JOIN comments c ON c.post_id = p.id GROUP BY p.id ORDER BY GREATEST(p.created_at, COALESCE(MAX(c.created_at), p.created_at)) DESC;",
   );
   res.json(postsForClient.rows);
 });
@@ -35,7 +35,7 @@ app.post("/api/addcomment", async (req, res) => {
     commentFromClient.postId,
     commentFromClient.text,
   ]);
-  res.status(201);
+  res.sendStatus(201);
 });
 
 app.post("/api/addpost", async (req, res) => {
@@ -44,7 +44,7 @@ app.post("/api/addpost", async (req, res) => {
     postFromClient.caption,
     postFromClient.text,
   ]);
-  res.status(201);
+  res.sendStatus(201);
 });
 
 app.listen(3000, () => {

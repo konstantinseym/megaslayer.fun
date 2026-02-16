@@ -1,7 +1,12 @@
 .btn {
   padding: 0.5rem;
   width: 8rem;
+  backdrop-filter: blur(4px);
   border: solid 1px var(--bordercolor);
+  border-bottom: solid 1px var(--borderhighlightedcolor);
+  border-right: solid 1px var(--borderhighlightedcolor);
+  box-shadow: 0 0 8px var(--fadecolor);
+  background-color: var(--backgroundhighlightedcolor);
   border-radius: 1rem;
   background-color: transparent;
   color: #fff;
@@ -10,6 +15,7 @@
   transition: var(--transition);
 }
 .btn:hover {
-    background-color: #fff;
-    color: #000;
+    color: var(--highlightcolor);
+    box-shadow: 0 0 16px var(--fadecolor);
+    transform: scale(1.025);
 }

@@ -6,9 +6,9 @@ import Ftr from "./components/Ftr.jsx";
 function App() {
   return (
     <div className="app">
-      <Hero heroCaptionContent={"megaslayer.fun"} />
+      <Hero />
       <Core />
-      <Ftr ftrCaptionContent={"megaslayer.fun"} />
+      <Ftr />
     </div>
   );
 }

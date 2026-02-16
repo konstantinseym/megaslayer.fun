@@ -1,8 +1,8 @@
 import "../styles/Ftr.css";
 
-function Ftr({ftrCaptionContent}) {
+function Ftr() {
     return <footer className="ftr">
-        <p className="ftr__content">{ftrCaptionContent}</p>
+        <p className="ftr__content">megaslayer.fun</p>
         </footer>
 }
 

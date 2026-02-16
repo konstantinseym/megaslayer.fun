@@ -1,20 +1,31 @@
 :root {
   --textcolor: #fff;
-  --bordercolor: #f6b1ce;
+  --highlightcolor: #f6b1ce;
   --fadecolor: rgba(0, 0, 0, 0.15);
-  --fadecolorwhite: rgba(255, 255, 255, 0.05);
-  --fadecolordark: rgba(0, 0, 0, 0.75);
+  --fadeoutcolor: rgba(255, 255, 255, 0.05);
+
+  --bordercolor: rgba(255, 255, 255, 0.075);
+  --borderhighlightedcolor: rgba(255, 255, 255, 0.2);
+  --backgroudhighlightedcolor: rgba(255, 255, 255, 0.02);
+
+
   --background: linear-gradient(
-    to bottom,
-    #ffffff,
-    #f6b1ce
+    115deg,
+    #2c3138 0%,
+    #2c3138 28%,
+    #2a2e36 28%,
+    #2a2e36 50%,
+    #323846 50%,
+    #323846 72%,
+    #282c34 72%,
+    #282c34 100%
   );
   --maincaptionfont: 300 3.75rem "Roboto", sans-serif;
   --captionfont: 300 2.5rem "Roboto", sans-serif;
   --minorcaptionfont: 300 2rem "Roboto", sans-serif;
   --textfont: 300 1.125rem "Roboto", sans-serif;
   --minortextfont: 300 0.875rem "Roboto", sans-serif;
-  --transition: all 0.225s ease-in-out;
+  --transition: all 0.2s ease-in-out;
 }
 * {
   margin: 0;
@@ -27,7 +38,6 @@ html {
   background-attachment: fixed;
 }
 body {
-  background-color: rgba(0, 0, 0, 0.75);
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
   color: var(--textcolor);

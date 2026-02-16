@@ -11,9 +11,9 @@ function FormAddComment({ postId, onAddComment }) {
     setCommentTextAreaValue(e.target.value);
   }
 
-  function FormSubmit(e) {
+  async function FormSubmit(e) {
     e.preventDefault();
-    addComment(postId, commentTextAreaValue);
+    await addComment(postId, commentTextAreaValue);
     setCommentTextAreaValue("");
     onAddComment();
   }
