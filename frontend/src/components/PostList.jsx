@@ -3,7 +3,7 @@ import { getPosts } from "../api/getposts.js";
 import PostPreview from "./PostPreview.jsx";
 import ModalNewThread from "./ModalNewThread.jsx";
 import Btn from "./UI/Btn.jsx";
-
+import { useScroll } from "../hooks/useScroll.js";
 
 function PostList() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -11,6 +11,7 @@ function PostList() {
   const handleCloseModal = () => setModalVisible(false);
   const handleAddPost = () => renderPosts();
   const [posts, setPosts] = useState([]);
+  const isScrolled = useScroll();
 
   async function renderPosts() {
     const serverData = await getPosts();
@@ -29,7 +30,11 @@ function PostList() {
         onAddPost={handleAddPost}
       />
       <Btn
-        style={{ position: "fixed", top: "9rem", zIndex: "1" }}
+        style={
+          isScrolled
+            ? { position: "fixed", top: "7rem", zIndex: "1" }
+            : { position: "fixed", top: "9rem", zIndex: "1" }
+        }
         onClick={handleOpenModal}
       >
         create thread

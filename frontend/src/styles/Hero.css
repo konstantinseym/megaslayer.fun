@@ -15,9 +15,16 @@
   border-radius: 4rem;
   transition: var(--transition);
 }
+.hero--scaled {
+  transform: scale(0.75);
+  top: 1rem;
+}
 .hero:hover {
   box-shadow: 0 0 16px var(--fadecolor);
   transform: scale(1.025);
+}
+.hero--scaled:hover {
+  transform: scale(0.76875);
 }
 .hero__caption {
   font: var(--maincaptionfont);

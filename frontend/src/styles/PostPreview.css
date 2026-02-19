@@ -11,6 +11,12 @@
   border-right: solid 1px var(--borderhighlightedcolor);
   box-shadow: 0 0 8px var(--fadecolor);
   background-color: var(--backgroundhighlightedcolor);
+  transition: var(--transition);
+}
+.postpreview--faded {
+  opacity: 0;
+  transform: translateY(2rem);
+  pointer-events: none;
 }
 .postpreview__titlecontainer {
   display: flex;

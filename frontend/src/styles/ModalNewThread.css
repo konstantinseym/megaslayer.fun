@@ -11,9 +11,11 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  transition: var(--transition);
 }
 .modalnewthread--hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 .modalnewthread__caption {
   font: var(--captionfont);

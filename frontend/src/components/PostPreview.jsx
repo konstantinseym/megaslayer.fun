@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 
 function PostPreview({ postId, postCaption, postText, postCreatedAt, repliesCount }) {
-  return (
+    return (
     <div className="postpreview">
       <div className="postpreview__titlecontainer">
         <Link to={"/post?id=" + postId}>
