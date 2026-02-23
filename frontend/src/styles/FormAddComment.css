@@ -1,6 +1,14 @@
 .formaddcomment {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    transition: var(--transition);
+}
+.formaddcomment__errortext {
+    position: absolute;
+    top: 110%;
+    font: var(--minortextfont);
+    color: #f00;
 }

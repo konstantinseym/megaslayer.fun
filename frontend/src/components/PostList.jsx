@@ -1,3 +1,4 @@
+import "../styles/PostList.css";
 import { useState, useEffect } from "react";
 import { getPosts } from "../api/getposts.js";
 import PostPreview from "./PostPreview.jsx";
@@ -23,34 +24,34 @@ function PostList() {
   }, []);
 
   return (
-    <>
-      <ModalNewThread
-        isVisible={modalVisible}
-        onCloseModal={handleCloseModal}
-        onAddPost={handleAddPost}
-      />
-      <Btn
-        style={
-          isScrolled
-            ? { position: "fixed", top: "7rem", zIndex: "1" }
-            : { position: "fixed", top: "9rem", zIndex: "1" }
-        }
-        onClick={handleOpenModal}
-      >
-        create thread
-      </Btn>
-
-      {posts.map((post) => (
-        <PostPreview
-          postId={post.id}
-          postCaption={post.caption}
-          postText={post.text}
-          postCreatedAt={post.created_at}
-          repliesCount={post.comments_count}
-          key={post.id}
+      <div className="postlist">
+        <ModalNewThread
+          isVisible={modalVisible}
+          onCloseModal={handleCloseModal}
+          onAddPost={handleAddPost}
         />
-      ))}
-    </>
+        <Btn
+          style={
+            isScrolled
+              ? { position: "fixed", top: "7rem", zIndex: "1" }
+              : { position: "fixed", top: "9rem", zIndex: "1" }
+          }
+          onClick={handleOpenModal}
+        >
+          create thread
+        </Btn>
+
+        {posts.map((post) => (
+          <PostPreview
+            postId={post.id}
+            postCaption={post.caption}
+            postText={post.text}
+            postCreatedAt={post.created_at}
+            repliesCount={post.comments_count}
+            key={post.id}
+          />
+        ))}
+      </div>
   );
 }
 

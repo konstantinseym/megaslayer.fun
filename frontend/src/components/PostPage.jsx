@@ -22,25 +22,25 @@ function PostPage() {
   if (!post) return <></>;
 
   return (
-    <div className="postpage">
-      <div className="postpage__post">
-        <div className="postpage__titlecontainer">
-          <h2 className="postpage__caption">{post.caption}</h2>
-          <p className="postpage__minortext">{formatDate(post.created_at)}</p>
+      <div className="postpage">
+        <div className="postpage__post">
+          <div className="postpage__titlecontainer">
+            <h2 className="postpage__caption">{post.caption}</h2>
+            <p className="postpage__minortext">{formatDate(post.created_at)}</p>
+          </div>
+          <p className="postpage__content">{post.text}</p>
         </div>
-        <p className="postpage__content">{post.text}</p>
+        <div className="postpage__replies">
+          {post.comments.map((comment) => (
+            <Reply
+              key={comment.id}
+              commentText={comment.text}
+              commentCreatedAt={formatDate(comment.created_at)}
+            />
+          ))}
+          <FormAddComment postId={post.id} onAddComment={renderPost} />
+        </div>
       </div>
-      <div className="postpage__replies">
-        {post.comments.map((comment) => (
-          <Reply
-            key={comment.id}
-            commentText={comment.text}
-            commentCreatedAt={formatDate(comment.created_at)}
-          />
-        ))}
-        <FormAddComment postId={post.id} onAddComment={renderPost} />
-      </div>
-    </div>
   );
 }
 export default PostPage;
