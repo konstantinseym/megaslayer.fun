@@ -3,7 +3,7 @@ import { addComment } from "../api/addcomment.js";
 import { useState } from "react";
 import TextField from "./UI/TextField.jsx";
 import Btn from "./UI/Btn.jsx";
-import { AnimatePresence, motion } from "motion/react";
+import ErrorMsg from "./UI/ErrorMsg.jsx";
 
 function FormAddComment({ postId, onAddComment }) {
   const [commentTextAreaValue, setCommentTextAreaValue] = useState("");
@@ -35,18 +35,7 @@ function FormAddComment({ postId, onAddComment }) {
         onChange={handleChangeTextFieldValue}
       />
       <Btn>place reply</Btn>
-      <AnimatePresence>
-        {errorEmptyValue && (
-          <motion.p
-            animate={{ opacity: 1, x: [0, -5, 5, -5, 5, 0] }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="formaddcomment__errortext"
-          >
-            comment can't be empty
-          </motion.p>
-        )}
-      </AnimatePresence>
+      <ErrorMsg isShown={errorEmptyValue} errMsg={"comment can't be empty"} />
     </form>
   );
 }

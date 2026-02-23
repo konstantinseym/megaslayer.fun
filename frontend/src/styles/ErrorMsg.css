@@ -1,0 +1,7 @@
+.errormsg {
+  position: absolute;
+  top: 110%;
+  font: var(--minortextfont);
+  color: #f00;
+  z-index: 3;
+}

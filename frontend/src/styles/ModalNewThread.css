@@ -21,6 +21,7 @@
   font: var(--captionfont);
 }
 .modalnewthread__form {
+  position: relative;
   width: 960px;
   display: flex;
   flex-direction: column;
