@@ -1,5 +1,5 @@
 import "../styles/ModalNewThread.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { addPost } from "../api/addpost.js";
 import TextInput from "./UI/TextInput.jsx";
 import TextField from "./UI/TextField.jsx";
@@ -10,10 +10,14 @@ function ModalNewThread({ isVisible, onCloseModal, onAddPost }) {
   const [newPostCaptionValue, setNewPostCaptionValue] = useState("");
   const [newPostTextValue, setNewPostTextValue] = useState("");
   const [errorEmptyValue, setErrorEmptyValue] = useState(false);
+  const textFieldRef = useRef(null);
+  const textInputRef = useRef(null);
 
   async function FormSubmit(e) {
     e.preventDefault();
     if (newPostCaptionValue.trim() === "" || newPostTextValue.trim() === "") {
+      newPostTextValue.trim() === "" && textFieldRef.current.focus();
+      newPostCaptionValue.trim() === "" && textInputRef.current.focus();
       setErrorEmptyValue(true);
       setTimeout(() => {
         setErrorEmptyValue(false);
@@ -45,10 +49,12 @@ function ModalNewThread({ isVisible, onCloseModal, onAddPost }) {
       <h2 className="modalnewthread__caption">new thread</h2>
       <form className="modalnewthread__form" onSubmit={FormSubmit}>
         <TextInput
+          ref={textInputRef}
           value={newPostCaptionValue}
           onChange={handleChangePostCaptionValue}
         />
         <TextField
+          ref={textFieldRef}
           value={newPostTextValue}
           onChange={handleChangePostTextValue}
         />
